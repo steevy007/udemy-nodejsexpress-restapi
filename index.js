@@ -3,6 +3,7 @@ const app = express()
 const swaggerJsdoc=require('swagger-jsdoc')
 const swaggerUi=require('swagger-ui-express')
 const usersRoutes = require('./routes/users.route')
+const postsRoutes = require('./routes/posts.route')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
@@ -26,7 +27,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 /** Swagger Initialization - END */
 
 app.use("/users", usersRoutes)
-
+app.use("/posts", postsRoutes)
 app.listen(3000, () => {
     console.log('I am ready to listen')
 })
